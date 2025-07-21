@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  web:
+    image: shra1995yadav/python-exercise:latest
+    ports:
+      - 5000:5000
+    container_name: python-flask-app
+    restart: always
