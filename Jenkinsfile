@@ -4,6 +4,7 @@ pipeline {
     environment {
         IMAGE_NAME = 'shra1995yadav/python-app:latest'
         REMOTE_HOST = '13.201.95.248'
+        // # Hello
         REMOTE_USER = 'ubuntu'
         DOCKER_CREDS = credentials('dockerhub-creds')
         REMOTE_APP_DIR = '/var/lib/jenkins/workspace/python-app-declarative-1'
