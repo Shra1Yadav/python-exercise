@@ -43,5 +43,21 @@ pipeline {
                 sh "docker push ${IMAGE_NAME}"
             }
         }
+        stage('Docker Deploy')
+        {
+            steps {
+                sshagent(['13.232.101.203'])
+                {
+                    sh '''
+                    cd /var/lib/jenkins/workspace/python-scripted-pipeline-job
+                    pwd
+                    ls -la
+                    echo ">>> Docker compose up"
+                    docker compose up -d
+                    '''
+                }
+            }
+        }
+        
     }
 }
