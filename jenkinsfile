@@ -24,14 +24,12 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', passwordVariable: 'DOCKER_HUB_PASS', usernameVariable: 'DOCKER_HUB_USER')])
                 {
+                    sh '''
                     echo ">>> Docker Login"
                     echo "$DOCKER_HUB_PASS" | docker login -u "$DOCKER_HUB_USER" --password-stdin
+                    '''
                 }
             }
         }
     }
 }
-
-
-
-
