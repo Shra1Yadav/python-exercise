@@ -31,10 +31,16 @@ pipeline {
                 }
             }
         }
-        stage('test step')
+        stage('Docker Build')
         {
             steps {
-                sh 'echo "testing"'
+                sh 'docker build -t ${IMAGE_NAME} .'
+            }
+        }
+        stage('Docker Push')
+        {
+            steps {
+                sh 'docker push ${IMAGE_NAME} .'
             }
         }
     }
