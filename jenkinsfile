@@ -1,1 +1,24 @@
 
+pipeline {
+    agent {label 'master'}
+
+    environment {
+        IMAGE_NAME = 'shra1995yadav/python-project:declarative'
+    }
+
+    stages {
+
+        stage('Git Checkout stage')
+        {
+            steps {
+                git credentialsId: 'github-creds', url: 'https://github.com/Shra1Yadav/python-exercise.git'
+            }
+        }
+        stage('Print User')
+        {
+            steps {
+                sh 'whoami'
+            }
+        }
+    }
+}
